@@ -242,6 +242,17 @@
      ) ;; End cond
   )
 
+;; Force a reset of all settings
+(defun btt-refresh ()
+  (interactive)
+  (setq btt-subgroup-titles nil)
+  (setq btt-subgroup-name nil)
+  (setq btt-subgroup-titles-data nil)
+  (btt-refresh-subgroup-list)
+  ;; TODO: Close subgroup command (if open)?
+  (btt-update-window-cb)
+  )
+
 ;;;; Set BTT Subgroup Bindings.
 ; Macro to easily utilize lambda functions in bindings below
     (defmacro aif (&rest forms)
